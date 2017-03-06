@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:clear="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Студия дизайна домашнего текстиля: ${title}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background: url(img/${backgroundImg}) no-repeat;
+            background-attachment: fixed;
+            -moz-background-size: 100%;
+            -webkit-background-size: 100%;
+            -o-background-size: 100%;
+            background-size: 100%;
+            background-color: #ffffff;
+        }
+        h2 {
+            text-align: center;
+        }
+        .carousel-caption{
+            text-shadow: 2px 2px 2px rgba(0,0,0,1);
+        }
+        p.caption{
+            margin-left:5pt;
+        }
+        .carousel-inner{
+            width:100%;
+        }
+    </style>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-93016387-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+<body>
+<a href="index.html"><h1 style="font-family: 'Lobster'; color: black; text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; text-align: center;">Студия дизайна<br>домашнего текстиля <i class="glyphicon glyphicon-level-up" style="font-size: large;"></i></h1></a>
+<h2>${title}</h2>
+<p class="caption">${description}</p>
+
+<div id="myCarousel" class="carousel slide"<#if !video?has_content> data-ride="carousel"</#if>>
+    <#if image?size &lt; 11 >
+    <ol class="carousel-indicators">
+        <#list image as imageInfo>
+            <li data-target="#myCarousel" data-slide-to="${imageInfo?index}"<#if imageInfo?is_first> class="active"</#if>></li>
+        </#list>
+        <#list video as videoInfo>
+            <li data-target="#myCarousel" data-slide-to="${videoInfo?index}"<#if videoInfo?is_first> class="active"</#if>></li>
+        </#list>
+    </ol>
+    </#if>
+
+    <div class="carousel-inner" role="listbox">
+        <#list image as imageInfo>
+        <div class="item<#if imageInfo?is_first> active</#if>">
+            <img src="img/${imageInfo.img}" class="img-responsive center-block">
+            <div class="carousel-caption">
+            <#if imageInfo.title??>
+                <h3>${imageInfo.title}</h3>
+                <p></p>
+            </#if>
+            </div>
+        </div>
+        </#list>
+        <#list video as videoInfo>
+            <div class="item<#if videoInfo?is_first> active</#if>">
+                <iframe width="${videoInfo.width}" height="${videoInfo.height}" class="center-block" src="${videoInfo.src}" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </#list>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Предыдущий</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Следующий</span>
+    </a>
+</div>
+<p id="carouselctrl" style="text-align:center; margin-top:5pt;"><button onclick="$('.carousel').carousel('pause'); $('#carouselctrl').hide();" ><i class="glyphicon glyphicon-stop"></i></button> слайдшоу</p>
+<p style="text-align:center;">Просмотр других разделов <a href="index.html">портфолио</a>.</p>
+
+<div class="contacts" style="width:100%; margin-left: auto ; margin-right: auto ; padding: 10pt 0;">
+    <div class="panel panel-default" style="float:left; margin-left:5pt;">
+        <div class="panel-heading" style="height:80px;">
+            <p><img src="img/natalia_avatar.jpg" style="float:left; margin-right:5pt;"><h3 class="panel-title">Наталья</h3></p>
+        </div>
+        <div class="panel-body">
+            <div style="float:left;">
+                <p><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:natalibox1@mail.ru?subject=Вопрос с сайта">natalibox1@mail.ru</a></p>
+                <p><i class="glyphicon glyphicon-phone"></i> <a href="tel:+79166673686">+7-916-667-36-86</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default" style="float: right; margin-right:5pt;">
+        <div class="panel-heading" style="height:80px;">
+            <img src="img/nadezda_avatar.jpg" style="float:left; margin-right:5pt;"><h3 class="panel-title">Надежда</h3>
+        </div>
+        <div class="panel-body">
+            <div style="float:left;">
+                <p><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:nadin_box89@bk.ru?subject=Вопрос с сайта">nadin_box89@bk.ru</a></p>
+                <p><i class="glyphicon glyphicon-phone"></i> <a href="tel:+79653419785">+7-965-341-97-85</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

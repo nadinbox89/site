@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="site" type="siteType"/>
+  <xs:complexType name="imageType" mixed="true">
+    <xs:sequence>
+      <xs:element type="xs:string" name="description" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="img" use="optional"/>
+    <xs:attribute type="xs:string" name="title" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="videoType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="width" use="required"/>
+        <xs:attribute type="xs:string" name="height" use="required"/>
+        <xs:attribute type="xs:string" name="src" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="productType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="title"/>
+      <xs:element type="xs:string" name="shortDescription"/>
+      <xs:element type="xs:string" name="description"/>
+      <xs:element type="imageType" name="image" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="videoType" name="video" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="id" use="optional"/>
+    <xs:attribute type="xs:string" name="background-img" use="optional"/>
+    <xs:attribute type="xs:string" name="title-img" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="siteType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="text"/>
+      <xs:element type="productType" name="product" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
