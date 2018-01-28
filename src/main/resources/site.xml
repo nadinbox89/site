@@ -42,6 +42,8 @@
         <image img="drapery/35.jpg"/>
         <image img="drapery/36.jpg"/>
         <image img="drapery/37.jpg"/>
+        <image img="drapery/38.jpg"/>
+        <image img="drapery/39.jpg"/>
     </product>
     <product id="pillow" background-img="pillow.jpg" title-img="pillow-main.jpg">
         <title>Покрывала, подушки</title>
@@ -108,6 +110,7 @@
         <image img="lifting_curtains/14.jpg" title="Римская штора"/>
         <image img="lifting_curtains/15.jpg" title="Английская штора"/>
         <image img="lifting_curtains/16.jpg" title="Английская штора"/>
+        <image img="lifting_curtains/17.jpg" title="Римская штора"/>
     </product>
     <product id="louvers" background-img="louvers.jpg" title-img="louvers-main.jpg">
         <title>Жалюзи</title>
